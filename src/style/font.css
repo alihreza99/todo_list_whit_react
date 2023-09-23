@@ -1,0 +1,7 @@
+@font-face {
+    font-family: vazir;
+    src: url("../Fonts/Vazir-Bold.woff");
+    src: url("../Fonts/Vazir-Bold.eot")  format('woff');
+    src: url("../Fonts/Vazir-Bold.ttf")  format('ttf');
+    src: url("../Fonts/Vazir-Bold.woff2")  format('woff2');
+  }
