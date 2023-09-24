@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Todo from "../ListItem/Todo";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -12,11 +12,17 @@ export default function todolist() {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
 
+  const focus = useRef();
+
   useState(() => {
     if (localStorage.getItem("localTasks")) {
       setItems(JSON.parse(localStorage.getItem("localTasks")));
     }
   }, []);
+
+  useEffect(() => {
+    focus.current.focus();
+  });
 
   function changeinput(event) {
     setInput(event.target.value);
@@ -171,6 +177,7 @@ export default function todolist() {
         <h1 className="title">Todo App</h1>
         <form id="add-book" onSubmit={additem}>
           <input
+            ref={focus}
             value={input}
             onChange={changeinput}
             type="text"
@@ -210,4 +217,3 @@ export default function todolist() {
     </>
   );
 }
-
